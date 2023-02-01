@@ -3,7 +3,7 @@
     <h1>Products</h1>
 
     <ul>
-      <li v-for="p in products">
+      <li v-for="(p, index) in products" :key="index">
         <NuxtLink :to="`products/${p.id}`">{{ p.title }}</NuxtLink>
       </li>
     </ul>
