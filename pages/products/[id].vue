@@ -1,5 +1,8 @@
 <template>
   <div>
+    <Head>
+      <Title>{{ product.title }}</Title>
+    </Head>
     <ProductDetails :product="product" />
   </div>
 </template>

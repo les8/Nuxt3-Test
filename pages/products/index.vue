@@ -18,6 +18,10 @@ import ProductCard from '~~/components/ProductCard.vue';
   });
 
   const {data: products} = await useFetch('https://fakestoreapi.com/products')
+
+  useHead({ // тут можно переписывать head!
+    title: 'Products'
+  })
 </script>
 
 <style lang="scss" scoped>
