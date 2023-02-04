@@ -1,16 +1,18 @@
 <template>
   <div>
-    <h3>Продукт {{ id }}</h3>
+    <ProductDetails :product="product" />
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 //на данный момент можно вибить любой урл по такой системе и он отработает, нужно понять как блокировать несуществующие пути
  const { id } = useRoute().params;
- console.log(useRoute());
+ const uri = `https://fakestoreapi.com/products/${id}`;
+
+const { data: product } = await useFetch(uri, { key: id });
 
  definePageMeta({
-    layout: 'products',
+    layout: 'product',
   });
  
 </script>

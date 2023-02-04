@@ -4,13 +4,15 @@
 
     <ul>
       <li v-for="(p, index) in products" :key="index">
-        <NuxtLink :to="`products/${p.id}`">{{ p.title }}</NuxtLink>
+        <ProductCard :product="p" />
       </li>
     </ul>
   </div>
 </template>
 
 <script setup>
+import ProductCard from '~~/components/ProductCard.vue';
+
   definePageMeta({
     layout: 'products',
   });
