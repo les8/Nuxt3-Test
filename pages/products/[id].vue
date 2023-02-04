@@ -6,14 +6,18 @@
 
 <script setup>
 //на данный момент можно вибить любой урл по такой системе и он отработает, нужно понять как блокировать несуществующие пути
- const { id } = useRoute().params;
- const uri = `https://fakestoreapi.com/products/${id}`;
+const { id } = useRoute().params;
+const uri = `https://fakestoreapi.com/products/${id}`;
 
 const { data: product } = await useFetch(uri, { key: id });
 
- definePageMeta({
-    layout: 'product',
-  });
+definePageMeta({
+  layout: 'product',
+});
+
+if (!product.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Product not found' })
+}
  
 </script>
 
