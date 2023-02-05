@@ -7,8 +7,11 @@ export default defineNuxtConfig({
       meta: [
         {
           name: 'description', content: 'kip, pro, котел'
-        }
-      ]
-    }
-  }
-})
+        },
+      ],
+    },
+  },
+  runtimeConfig: {
+    currencyKey: process.env.CURRENCY_API_KEY,
+  },
+});
